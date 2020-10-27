@@ -4,7 +4,7 @@ ROOT_INCLUDES	?= include
 
 #paths are relative to platform folder
 export SOURCES   = ../../source ../../libs/lua-5.3.2/src ../../libs/utf8-util ../../libs/lodepng
-export INCLUDES  = ../../include ../../libs/lua-5.3.2/src ../../libs/utf8-util ../../libs/lodepng
+export INCLUDES  = ../../include ../../libs/z8lua ../../libs/utf8-util ../../libs/lodepng
 
 .PHONY: all 3ds switch clean clean-3ds clean-switch
 
