@@ -19,7 +19,7 @@ jobs:
 
       - name: Build
         run: |
-          docker run -e ENABLE_COMPATIBILITY_REPORTING -v $GITHUB_WORKSPACE:/build_dir devkitpro/devkitarm /bin/bash -ex 'make 3ds'
+          docker run -e ENABLE_COMPATIBILITY_REPORTING -v $GITHUB_WORKSPACE:/build_dir devkitpro/devkitarm /bin/bash -ex /build_dir/.github/workflows/build3ds.sh
 
   second:
     name: Switch
