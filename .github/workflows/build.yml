@@ -25,21 +25,15 @@ jobs:
     name: Switch
     runs-on: ubuntu-latest
 
-    container:
-      image: docker://devkitpro/devkita64
-      options: --cpus 2
-
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
-      - name: Checkout submodules
-        uses: srt32/git-actions@v0.0.3
         with:
-          args: git submodule update --init --recursive
+          submodules : recursive
 
       - name: Build
-        run: make switch
+        run: |
+          docker run -e ENABLE_COMPATIBILITY_REPORTING -v $GITHUB_WORKSPACE:/build_dir devkitpro/devkitarm /bin/bash -ex /build_dir/.github/workflows/buildSwitch.sh
 
   third:
     name: Tests
