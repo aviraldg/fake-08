@@ -61,31 +61,6 @@ coresume = coroutine.resume
 costatus = coroutine.status
 
 ---------------------------------
---strings
----------------------------------
-sub = string.sub
-
-function tostr(val, hex)
-	local kind=type(val)
-	if kind == "string" then
-		return val
-	elseif kind == "number" then
-		if hex then
-			val=val*0x10000
-			local part1=bit32.rshift(bit.band(val, 0xFFFF0000), 16)
-			local part2=bit32.band(val, 0xFFFF)
-			return string.format("0x%04x.%04x", part1, part2)
-		else
-			return tostring(val)
-		end
-	elseif kind == "boolean" then
-		return tostring(val)
-	else
-		return "[" .. kind .. "]"
-	end
-end
-
----------------------------------
 --Debug
 ---------------------------------
 trace = debug.traceback
